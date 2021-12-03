@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/28/2019 21:02:27" ReportInfo.Modified="01/10/2020 11:13:49" ReportInfo.CreatorVersion="2019.3.5.0" PrintSettings.Duplex="Simplex" PrintSettings.PrintMode="Scale" PrintSettings.PrintOnSheetWidth="210.058" PrintSettings.PrintOnSheetHeight="296.926" PrintSettings.PrintOnSheetRawPaperSize="9" PrintSettings.PagesOnSheet="Two">
+  <Dictionary>
+    <OleDbDataConnection Name="Connection" ConnectionString="rijcmlqVzFGsc+BVENiWJhr/EarGpBAWeg3buKy7FvTZiRE6WNO1EiH4xA1QNRDoDLcLyeiqovHbVXDGk2QXHrEF/mOx/UEgxLb7Nf6e+pQDjjFURY6MXqQ3/YxI/L7Ir8ic57mmFsPiyw3xD7OVTq5gqcrvg==">
+      <TableDataSource Name="dbo_tb_so1" Alias="tb_so" DataType="System.Int32" Enabled="true" TableName="dbo.&quot;tb_so&quot;">
+        <Column Name="sonom" DataType="System.String"/>
+        <Column Name="hhldgr" DataType="System.String"/>
+        <Column Name="hhbook" DataType="System.String"/>
+        <Column Name="hhyear" DataType="System.Decimal"/>
+        <Column Name="hhperd" DataType="System.Decimal"/>
+        <Column Name="hhjnen" DataType="System.String"/>
+        <Column Name="hhldes" DataType="System.String"/>
+        <Column Name="hhtdrb" DataType="System.Decimal"/>
+        <Column Name="hhtcrb" DataType="System.Decimal"/>
+        <Column Name="hhtdrt" DataType="System.Decimal"/>
+        <Column Name="hhtcrt" DataType="System.Decimal"/>
+        <Column Name="hhcurr" DataType="System.String"/>
+        <Column Name="hhrate" DataType="System.Decimal"/>
+        <Column Name="hhevnt" DataType="System.String"/>
+        <Column Name="hhtrno" DataType="System.Decimal"/>
+        <Column Name="hhjdat" DataType="System.Decimal"/>
+        <Column Name="hhuser" DataType="System.String"/>
+        <Column Name="hhstat" DataType="System.Decimal"/>
+        <Column Name="hhtoln" DataType="System.Decimal"/>
+      </TableDataSource>
+      <TableDataSource Name="dbo_tb_sos" Alias="tb_sos" DataType="System.Int32" Enabled="true" TableName="dbo.&quot;tb_sos&quot;">
+        <Column Name="sonod" DataType="System.String"/>
+        <Column Name="lhldgr" DataType="System.String"/>
+        <Column Name="lhbook" DataType="System.String"/>
+        <Column Name="lhjnen" DataType="System.String"/>
+        <Column Name="lhyear" DataType="System.Decimal"/>
+        <Column Name="lhperd" DataType="System.Decimal"/>
+        <Column Name="lhjnln" DataType="System.Decimal"/>
+        <Column Name="lhtsn" DataType="System.Decimal"/>
+        <Column Name="lhdate" DataType="System.Decimal"/>
+        <Column Name="hhevnt" DataType="System.String"/>
+        <Column Name="crsg03" DataType="System.String"/>
+        <Column Name="crsg04" DataType="System.String"/>
+        <Column Name="lhdram" DataType="System.Decimal"/>
+        <Column Name="lhcram" DataType="System.Decimal"/>
+        <Column Name="lhdrat" DataType="System.Decimal"/>
+        <Column Name="lhcrat" DataType="System.Decimal"/>
+        <Column Name="hhtrno" DataType="System.Decimal"/>
+        <Column Name="lhldes" DataType="System.String"/>
+        <Column Name="lhian" DataType="System.Decimal"/>
+        <Column Name="acct" DataType="System.String"/>
+        <Column Name="acctdesc" DataType="System.String"/>
+        <Column Name="lhjrf1" DataType="System.String"/>
+        <Column Name="lhjrf2" DataType="System.String"/>
+        <Column Name="hhcurr" DataType="System.String"/>
+        <Column Name="hhrate" DataType="System.Decimal"/>
+        <Column Name="lhdref" DataType="System.String"/>
+      </TableDataSource>
+    </OleDbDataConnection>
+    <Relation Name="dbo_tb_so1_dbo_tb_sos" ParentDataSource="dbo_tb_so1" ChildDataSource="dbo_tb_sos" ParentColumns="sonom" ChildColumns="sonod" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Guides="708.75,708.75,689.85,689.85,689.85,708.75,708.75,708.75,708.75,708.75,680.4,680.4,689.85,689.85,689.85,689.85,680.4,680.4,708.75,708.75,708.75,708.75,708.75,708.75,708.75,708.75,689.85,670.95,680.4,680.4,661.5" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" CanGrow="true">
+      <TextObject Name="Text61" Left="-9450" Top="-9450" Width="47.25" Height="18.9" Text="输入:" Font="宋体, 9pt"/>
+      <TextObject Name="Text62" Left="-9450" Top="-9450" Width="47.25" Height="18.9" Text="输入:" Font="宋体, 9pt"/>
+      <TextObject Name="Text63" Left="-9450" Top="-9450" Width="47.25" Height="18.9" Text="输入:" Font="宋体, 9pt"/>
+      <TextObject Name="Text67" Left="-9450" Top="-9450" Width="37.8" Height="18.9" Text="总账" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="3.85" Width="718.2" Height="2"/>
+    <GroupHeaderBand Name="GroupHeader1" Top="9.69" Width="718.2" Height="143.75" StartNewPage="true" Condition="[tb_so.sonom]">
+      <TextObject Name="Text58" Left="217.35" Top="11.45" Width="283.5" Height="28.35" Text="南京锐瀚航空部件有限公司" AutoWidth="true" HorzAlign="Center" Font="宋体, 15pt, style=Bold"/>
+      <TextObject Name="Text19" Left="18.9" Top="124.85" Width="103.95" Height="18.9" Text="[[tb_SO.hhjnen]]" Font="宋体, 9pt"/>
+      <TextObject Name="Text17" Left="56.7" Top="18.9" Width="37.8" Height="18.9" Text="[tb_SO.hhstat]" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text21" Left="292.95" Top="37.8" Width="122.85" Height="18.9" Text="凭证明细" HorzAlign="Center" Font="宋体, 14pt"/>
+      <TextObject Name="Text23" Left="18.9" Top="18.9" Width="47.25" Height="18.9" Text="状态:" Font="宋体, 9pt"/>
+      <TextObject Name="Text59" Left="18.9" Top="47.25" Width="47.25" Height="18.9" Text="输入:" Font="宋体, 9pt"/>
+      <TextObject Name="Text26" Left="66.15" Top="47.25" Width="94.5" Height="18.9" Text="[tb_so.hhuser]" Font="宋体, 9pt"/>
+      <LineObject Name="Line4" Top="71.6" Width="737.1"/>
+      <TextObject Name="Text1" Left="66.15" Top="75.6" Width="94.5" Height="18.9" Text="[tb_SO.hhldgr]" Font="宋体, 9pt"/>
+      <TextObject Name="Text2" Left="264.6" Top="75.6" Width="94.5" Height="18.9" Text="[tb_SO.hhbook]" Font="宋体, 9pt"/>
+      <TextObject Name="Text11" Left="472.5" Top="75.6" Width="56.7" Height="18.9" Text="[tb_SO.hhcurr]" Font="宋体, 9pt"/>
+      <TextObject Name="Text12" Left="614.25" Top="75.6" Width="94.5" Height="18.9" Text="[tb_SO.hhrate]" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text15" Left="124.85" Top="122.85" Width="66.15" Height="18.9" Text="[tb_SO.hhjdat]" HorzAlign="Center" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text4" Left="198.45" Top="122.85" Width="37.8" Height="18.9" Text="[tb_SO.hhperd]" HorzAlign="Center" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text13" Left="236.25" Top="122.85" Width="94.5" Height="18.9" Text="[tb_SO.hhevnt]" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="481.95" Top="122.85" Width="132.3" Height="18.9" Text="[tb_SO.hhldes]" Font="宋体, 9pt"/>
+      <TextObject Name="Text14" Left="614.25" Top="122.85" Width="37.8" Height="18.9" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text18" Left="141.75" Top="18.9" Width="47.25" Height="18.9" Text="[tb_SO.hhtoln]" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text3" Left="661.5" Top="47.25" Width="94.5" Height="18.9" Text="[Page#]" Font="宋体, 9pt"/>
+      <TextObject Name="Text60" Left="103.95" Top="18.9" Width="47.25" Height="18.9" Text="行数:" Font="宋体, 9pt"/>
+      <TextObject Name="Text64" Left="18.9" Top="75.6" Width="37.8" Height="18.9" Text="总账" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text65" Left="18.9" Top="103.95" Width="56.7" Height="18.9" Text="凭证号" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text66" Left="128.3" Top="103.95" Width="56.7" Height="18.9" Text="日期" AutoWidth="true" HorzAlign="Center" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text68" Left="226.8" Top="75.6" Width="37.8" Height="18.9" Text="帐本" AutoWidth="true" HorzAlign="Right" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text69" Left="406.35" Top="75.6" Width="66.15" Height="18.9" Text="交易货币" AutoWidth="true" HorzAlign="Right" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text70" Left="548.1" Top="75.6" Width="66.15" Height="18.9" Text="兑换率" AutoWidth="true" HorzAlign="Right" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text71" Left="198.45" Top="103.95" Width="37.8" Height="18.9" Text="期段" AutoWidth="true" HorzAlign="Center" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text72" Left="236.25" Top="103.95" Width="56.7" Height="18.9" Text="事件" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text73" Left="481.95" Top="103.95" Width="75.6" Height="18.9" Text="事件说明" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text74" Left="614.25" Top="103.95" Width="47.25" Height="18.9" Text="附页数" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text75" Left="330.75" Top="103.95" Width="66.15" Height="18.9" Text="回转凭证" AutoWidth="true" HorzAlign="Center" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text76" Left="406.35" Top="103.95" Width="66.15" Height="18.9" Text="回转日期" AutoWidth="true" HorzAlign="Center" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text10" Left="567" Top="18.9" Width="141.75" Height="18.9" Text="[Date]" Font="宋体, 9pt"/>
+      <TextObject Name="Text77" Left="661.5" Top="103.95" Width="47.25" Height="18.9" Text="事件号" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+      <TextObject Name="Text78" Left="661.5" Top="122.85" Width="47.25" Height="18.9" Text="[tb_SO.hhtrno]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      <DataBand Name="Data1" Top="157.29" Width="718.2" Height="37.8" DataSource="dbo_tb_so1">
+        <TextObject Name="Text38" Left="9.45" Top="18.9" Width="37.8" Height="18.9" Text="行号" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+        <TextObject Name="Text39" Left="56.7" Top="18.9" Width="66.15" Height="18.9" Text="会计科目" AutoWidth="true" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text40" Left="264.6" Top="18.9" Width="66.15" Height="18.9" Text="交易借方" AutoWidth="true" HorzAlign="Right" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text41" Left="349.65" Top="18.9" Width="66.15" Height="18.9" Text="交易贷方" AutoWidth="true" HorzAlign="Right" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text42" Left="453.6" Top="18.9" Width="37.8" Height="18.9" Text="借方" AutoWidth="true" HorzAlign="Right" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text43" Left="538.65" Top="18.9" Width="37.8" Height="18.9" Text="贷方" AutoWidth="true" HorzAlign="Right" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text44" Left="585.9" Top="18.9" Width="37.8" Height="18.9" Text="统计" AutoWidth="true" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text45" Left="642.6" Top="18.9" Width="37.8" Height="18.9" Text="凭证行说明" AutoWidth="true" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <LineObject Name="Line1" Left="-9.45" Top="9.45" Width="737.1"/>
+        <DataBand Name="Data2" Top="198.93" Width="718.2" Height="85.05" DataSource="dbo_tb_sos">
+          <TextObject Name="Text37" Left="236.25" Top="9.45" Width="85.05" Height="18.9" Text="[tb_SOs.lhdram]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text30" Left="9.45" Top="9.45" Width="28.35" Height="18.9" Text="[tb_SOs.lhjnln]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text46" Left="47.25" Top="9.45" Width="189" Height="18.9" Text="[tb_sos.acct]" Font="宋体, 9pt"/>
+          <TextObject Name="Text47" Left="311.85" Top="9.45" Width="94.5" Height="18.9" Text="[tb_sos.lhcram]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text48" Left="406.35" Top="9.45" Width="75.6" Height="18.9" Text="[tb_sos.lhdrat]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text49" Left="491.4" Top="9.45" Width="75.6" Height="18.9" Text="[tb_sos.lhcrat]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text50" Left="642.6" Top="9.45" Width="103.95" Height="18.9" Text="[tb_sos.lhldes]" Font="宋体, 9pt"/>
+          <TextObject Name="Text51" Left="9.45" Top="37.8" Width="66.15" Height="18.9" Text="科目说明" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+          <TextObject Name="Text20" Left="75.6" Top="37.8" Width="198.45" Height="47.25" Text="[tb_sos.acctdesc]" Font="宋体, 9pt"/>
+          <TextObject Name="Text52" Left="283.5" Top="37.8" Width="47.25" Height="28.35" Text="参考1" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+          <TextObject Name="Text22" Left="330.75" Top="37.8" Width="94.5" Height="37.8" Text="[tb_sos.lhjrf1]" Font="宋体, 9pt"/>
+          <TextObject Name="Text53" Left="444.15" Top="37.8" Width="47.25" Height="18.9" Text="参考2" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+          <TextObject Name="Text54" Left="585.9" Top="37.8" Width="47.25" Height="18.9" Text="参考3" AutoWidth="true" Underlines="true" Font="宋体, 9pt"/>
+          <TextObject Name="Text24" Left="491.4" Top="37.8" Width="94.5" Height="37.8" Text="[tb_sos.lhjrf2]" Font="宋体, 9pt"/>
+          <Sort>
+            <Sort Expression="[tb_sos.lhjnln]"/>
+          </Sort>
+        </DataBand>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="287.83" Width="718.2" Height="75.6" Guides="56.7">
+        <TextObject Name="Text55" Left="9.45" Top="7.45" Width="113.4" Height="18.9" Text="[[tb_SO.hhjnen]]" Font="宋体, 9pt"/>
+        <LineObject Name="Line3" Width="737.1"/>
+        <TextObject Name="Text8" Left="236.25" Top="7.45" Width="85.05" Height="18.9" Text="[tb_SO.hhtcrb]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text7" Left="321.3" Top="7.45" Width="94.5" Height="18.9" Text="[tb_SO.hhtdrb]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text9" Left="406.35" Top="7.45" Width="75.6" Height="18.9" Text="[tb_SO.hhtdrt]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text16" Left="340.2" Top="30.35" Width="103.95" Height="18.9" Text="[tb_SO.hhuser]" Font="宋体, 9pt"/>
+        <TextObject Name="Text56" Left="292.95" Top="28.35" Width="47.25" Height="18.9" Text="制表:" AutoWidth="true" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text57" Left="500.85" Top="28.35" Width="66.15" Height="18.9" Text="核准:" AutoWidth="true" Underlines="true" Font="宋体, 9pt" Wysiwyg="true"/>
+        <TextObject Name="Text5" Left="491.4" Top="7.45" Width="75.6" Height="18.9" Text="[tb_so.hhtcrt]" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="367.28" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

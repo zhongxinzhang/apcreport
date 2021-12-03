@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="12/07/2020 11:31:01" ReportInfo.Modified="02/19/2021 13:14:44" ReportInfo.CreatorVersion="2019.3.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string string1 = &quot;&quot;;
+    string string2 = &quot;&quot;;
+    private void GroupHeader1_AfterData(object sender, EventArgs e)
+    {
+      string1 = (string)Report.GetColumnValue(&quot;tb_so.lxarbl&quot;);
+      string2 = (string)Report.GetColumnValue(&quot;tb_so.lmcarr&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <OleDbDataConnection Name="Connection" ConnectionString="rijcmlqVzFGsc+BVENiWJhr/EarGpBAWeg3buKy7FvTZiRE6WNO1EiH4xA1QNRDoDLcLyeiqovHbVXDGk2QXHrEF/mOx/UEgxLb7Nf6e+pQDjjFURY6MXqQ3/YxI/L7Ir8ic57mmFsPiyw3xD7OVTq5gqcrvg==">
+      <TableDataSource Name="dbo_tb_so" Alias="tb_so" DataType="System.Int32" Enabled="true" TableName="dbo.&quot;tb_so&quot;">
+        <Column Name="comcon" DataType="System.String"/>
+        <Column Name="llload" DataType="System.Decimal"/>
+        <Column Name="hcpo" DataType="System.String"/>
+        <Column Name="clcpol" DataType="System.Decimal"/>
+        <Column Name="llordn" DataType="System.Decimal"/>
+        <Column Name="llolin" DataType="System.Decimal"/>
+        <Column Name="lllqty" DataType="System.Decimal"/>
+        <Column Name="iprod" DataType="System.String"/>
+        <Column Name="ludte1" DataType="System.String"/>
+        <Column Name="dts" DataType="System.String"/>
+        <Column Name="ludte2" DataType="System.String"/>
+        <Column Name="shipto" DataType="System.String"/>
+        <Column Name="ifeno" DataType="System.String"/>
+        <Column Name="apcono" DataType="System.String"/>
+        <Column Name="apcoln" DataType="System.String"/>
+        <Column Name="bapo" DataType="System.String"/>
+        <Column Name="baline" DataType="System.String"/>
+        <Column Name="lum" DataType="System.String"/>
+        <Column Name="ixitem" DataType="System.String"/>
+        <Column Name="idesc" DataType="System.String"/>
+        <Column Name="ixslum" DataType="System.String"/>
+        <Column Name="iqall" DataType="System.Decimal"/>
+        <Column Name="ilot" DataType="System.String"/>
+      </TableDataSource>
+    </OleDbDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2">
+      <BarcodeObject Name="Barcode3" Left="-9450" Top="-9450" Width="98.75" Height="94.5" Barcode="Code128" Barcode.AutoEncode="true"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="3.49" Width="718.2" Height="460.05">
+      <PictureObject Name="Picture1" Left="9.45" Top="9.45" Width="217.35" Height="66.15" Image="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"/>
+      <TextObject Name="Text3" Left="623.7" Width="47.25" Height="18.9" Text="[Page]" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TableObject Name="Table2" Left="9.45" Top="103.95" Width="226.8" Height="113.4" Border.Lines="All">
+        <TableColumn Name="Column8" Width="103.96"/>
+        <TableColumn Name="Column9" Width="122.84"/>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell33" Border.Lines="All" Text="Sold To" Font="宋体, 9pt"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="2500-10" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell38" Text="BOMBARDIER GLOBAL 7000/8000" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell39" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row26">
+          <TableCell Name="Cell87" Text="P . O . BOX 6087" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell88" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row27">
+          <TableCell Name="Cell89" Text="STATION CENTRE - VILLE" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell90" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row28">
+          <TableCell Name="Cell91" Text="MONTREAL, QC, CANADA H3C" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell92" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row29">
+          <TableCell Name="Cell93" Text="3G9  CANADA" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell94" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table3" Left="245.7" Top="103.95" Width="226.78" Height="113.4" Border.Lines="All">
+        <TableColumn Name="Column10" Width="113.39"/>
+        <TableColumn Name="Column11" Width="113.39"/>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell40" Border.Lines="All" Text="Ship To" Font="宋体, 9pt"/>
+          <TableCell Name="Cell41" Border.Lines="All" Text="[tb_so.shipto]" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell42" Text="[tb_so.sad4]" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell43" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row22">
+          <TableCell Name="Cell79" Text="[tb_so.sad5]" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell80" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row23">
+          <TableCell Name="Cell81" Text="[tb_so.sad6]" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell82" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row24">
+          <TableCell Name="Cell83" Text="[tb_so.sad7]" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell84" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row25">
+          <TableCell Name="Cell85" Text="[tb_so.sad8]" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell86" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text44" Left="274.05" Top="28.35" Width="170.1" Height="28.35" Text="Packing Slip" AutoWidth="true" Font="Arial, 16pt, style=Bold, Italic"/>
+      <BarcodeObject Name="Barcode1" Left="583.75" Top="79.05" Width="52.5" Height="18.9" Text="0[tb_so.llload]" ShowText="false" AllowExpressions="true" Barcode="Codabar"/>
+      <TableObject Name="Table5" Left="481.95" Top="103.95" Width="226.78" Height="170.1" Border.Lines="All">
+        <TableColumn Name="Column14" Width="113.39"/>
+        <TableColumn Name="Column15" Width="113.39"/>
+        <TableRow Name="Row9">
+          <TableCell Name="Cell48" Border.Lines="All" Text="Slip No." Font="宋体, 9pt"/>
+          <TableCell Name="Cell49" Border.Lines="All" Font="宋体, 9pt">
+            <TextObject Name="Text5" Width="113.4" Height="18.9" Text="0[tb_so.llload]" HorzAlign="Center" Font="宋体, 9pt"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row10">
+          <TableCell Name="Cell50" Border.Lines="All" Text="Terms" Font="宋体, 9pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Text="Net 60 Days" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row14">
+          <TableCell Name="Cell63" Border.Lines="All" Text="Source Code" Font="宋体, 9pt"/>
+          <TableCell Name="Cell64" Border.Lines="All" Text="4" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row15">
+          <TableCell Name="Cell65" Border.Lines="All" Text="B/O Code" Font="宋体, 9pt"/>
+          <TableCell Name="Cell66" Border.Lines="All" Text="0" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row16">
+          <TableCell Name="Cell67" Border.Lines="All" Text="Priority" Font="宋体, 9pt"/>
+          <TableCell Name="Cell68" Border.Lines="All" Text="50" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row17">
+          <TableCell Name="Cell69" Border.Lines="All" Text="Incoterms" Font="宋体, 9pt"/>
+          <TableCell Name="Cell70" Border.Lines="All" Text="FCA ORIGIN" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row19">
+          <TableCell Name="Cell73" Border.Lines="All" Text="P.O. Date" Font="宋体, 9pt"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="[tb_so.ludte1]" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row20">
+          <TableCell Name="Cell75" Border.Lines="All" Text="Scheduled Date" Font="宋体, 9pt"/>
+          <TableCell Name="Cell76" Border.Lines="All" Text="[tb_so.dts]" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row21">
+          <TableCell Name="Cell77" Border.Lines="All" Text="Customer Need" Font="宋体, 9pt"/>
+          <TableCell Name="Cell78" Border.Lines="All" Text="[tb_so.ludte2]" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table6" Left="491.4" Top="18.9" Width="151.2" Height="56.7">
+        <TableColumn Name="Column16" Width="151.2"/>
+        <TableRow Name="Row11">
+          <TableCell Name="Cell52" Text="Arrowhead Products" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row12">
+          <TableCell Name="Cell57" Text="4411 Katella Avenue" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row13">
+          <TableCell Name="Cell62" Text="Los Alamitos, CA 90720" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text45" Left="264.6" Top="66.15" Width="56.7" Height="18.9" Text="Printed" AutoWidth="true" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text48" Left="321.3" Top="66.15" Width="151.2" Height="18.9" Text="[FormatDateTime([Date],&quot;MM/dd/yy hh:mm&quot;)]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="595.35" Width="37.8" Height="18.9" Text="Page" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text46" Left="661.5" Width="18.9" Height="18.9" Text="of" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text1" Left="680.4" Width="37.8" Height="18.9" Text="[Page]" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TableObject Name="Table4" Left="9.45" Top="236.25" Width="226.8" Height="37.8" Border.Lines="All">
+        <TableColumn Name="Column12" Width="151.2"/>
+        <TableColumn Name="Column13" Width="75.6"/>
+        <TableRow Name="Row7">
+          <TableCell Name="Cell44" Border.Lines="All" Text="Ship From Warehouse" Font="宋体, 9pt"/>
+          <TableCell Name="Cell45" Border.Lines="All" Text="FG" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row8">
+          <TableCell Name="Cell46" Text="Finished Goods" Font="宋体, 9pt"/>
+          <TableCell Name="Cell47" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table7" Left="9.45" Top="283.05" Width="701.17" Height="37.8">
+        <TableColumn Name="Column17" Width="91.19"/>
+        <TableColumn Name="Column18" Width="128.99"/>
+        <TableColumn Name="Column19" Width="62.84"/>
+        <TableColumn Name="Column20" Width="81.74"/>
+        <TableColumn Name="Column21" Width="100.64"/>
+        <TableColumn Name="Column22" Width="62.84"/>
+        <TableColumn Name="Column23" Width="62.84"/>
+        <TableColumn Name="Column24" Width="110.09"/>
+        <TableRow Name="Row30">
+          <TableCell Name="Cell95" Border.Lines="All" Text="AP Order No." Font="宋体, 9pt"/>
+          <TableCell Name="Cell96" Border.Lines="All" Text="  [tb_so.apcono]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell97" Border.Lines="All" Text="Line No." HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell98" Border.Lines="All" Text="[tb_so.apcoln]" HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell99" Border.Lines="All" Text="Customer PO" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell120" Border.Lines="Right, Top, Bottom" Font="宋体, 9pt"/>
+          <TableCell Name="Cell121" Border.Lines="All" Text=" [tb_so.bapo]" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell122" Border.Lines="All" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row31">
+          <TableCell Name="Cell100" Border.Lines="All" Text="AP PO No." Font="宋体, 9pt"/>
+          <TableCell Name="Cell101" Border.Lines="All" Text="  [tb_so.hcpo]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell102" Border.Lines="All" Text="Line No." HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell103" Border.Lines="All" Text="[tb_so.clcpol]" HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell104" Border.Lines="All" Text="Country of Origin" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell123" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell124" Border.Lines="All" Text=" China" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell125" Border.Lines="All" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <BarcodeObject Name="Barcode2" Left="85.05" Top="326.3" Width="222.5" Height="14.72" Text="[tb_so.iprod]" ShowText="false" AllowExpressions="true" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <TableObject Name="Table9" Left="9.45" Top="346.65" Width="699.3" Height="113.4">
+        <TableColumn Name="Column34" Width="47.25"/>
+        <TableColumn Name="Column35" Width="28.35"/>
+        <TableColumn Name="Column36" Width="75.6"/>
+        <TableColumn Name="Column37" Width="113.4"/>
+        <TableColumn Name="Column38" Width="75.6"/>
+        <TableColumn Name="Column39" Width="103.95"/>
+        <TableColumn Name="Column40" Width="85.05"/>
+        <TableColumn Name="Column41" Width="75.6"/>
+        <TableColumn Name="Column42" Width="94.5"/>
+        <TableRow Name="Row39">
+          <TableCell Name="Cell189" Border.Lines="All" Text="C/Line" Font="宋体, 9pt"/>
+          <TableCell Name="Cell190" Border.Lines="All" Text="Qty Due" HorzAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell191" Border.Lines="All" HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell192" Border.Lines="All" Text="Customer PN or NSN" Font="宋体, 9pt" ColSpan="6"/>
+          <TableCell Name="Cell193" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell214" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell215" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell216" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell217" Border.Lines="All" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row40">
+          <TableCell Name="Cell194" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell195" Border.Lines="All" Text="U/M" HorzAlign="Center" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell196" Border.Lines="All" HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell197" Border.Lines="All" Text="Arrowhead Part No." Font="宋体, 9pt" ColSpan="3"/>
+          <TableCell Name="Cell198" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell218" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell219" Border.Lines="All" Text="Item No." Font="宋体, 9pt"/>
+          <TableCell Name="Cell220" Border.Lines="All" Text="Item Rev" Font="宋体, 9pt"/>
+          <TableCell Name="Cell221" Border.Lines="All" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row41">
+          <TableCell Name="Cell199" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell200" Border.Lines="All" Font="宋体, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell201" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell202" Border.Lines="All" Text="Loc" Font="宋体, 9pt"/>
+          <TableCell Name="Cell203" Border.Lines="All" Text="Aloc Qty" Font="宋体, 9pt"/>
+          <TableCell Name="Cell222" Border.Lines="All" Text="Ship Qty" HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell223" Border.Lines="All" Text="Price" Font="宋体, 9pt"/>
+          <TableCell Name="Cell224" Border.Lines="All" Text="U/M" Font="宋体, 9pt"/>
+          <TableCell Name="Cell225" Border.Lines="All" Text="Amount" HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row42">
+          <TableCell Name="Cell204" Text="[tb_so.baline]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell205" Font="宋体, 9pt"/>
+          <TableCell Name="Cell206" Font="宋体, 9pt"/>
+          <TableCell Name="Cell207" Text="[tb_so.ixitem]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell208" Font="宋体, 9pt"/>
+          <TableCell Name="Cell226" Font="宋体, 9pt"/>
+          <TableCell Name="Cell227" Font="宋体, 9pt"/>
+          <TableCell Name="Cell228" Font="宋体, 9pt"/>
+          <TableCell Name="Cell229" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row43">
+          <TableCell Name="Cell209" Font="宋体, 9pt"/>
+          <TableCell Name="Cell210" Font="宋体, 9pt"/>
+          <TableCell Name="Cell211" Text="[tb_so.lum]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell212" Text="[tb_so.idesc]" Font="宋体, 9pt" ColSpan="3"/>
+          <TableCell Name="Cell213" Font="宋体, 9pt"/>
+          <TableCell Name="Cell230" Font="宋体, 9pt"/>
+          <TableCell Name="Cell231" Text="[tb_so.iprod]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell232" Text="[tb_so.ifeno]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell233" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row45">
+          <TableCell Name="Cell243" Font="宋体, 9pt"/>
+          <TableCell Name="Cell244" Font="宋体, 9pt"/>
+          <TableCell Name="Cell245" Font="宋体, 9pt"/>
+          <TableCell Name="Cell246" Text="APCOCN" Font="宋体, 9pt"/>
+          <TableCell Name="Cell247" Text="[tb_so.lllqty]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell248" Text="__________   " HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell249" Text="__________            " HorzAlign="Center" Font="宋体, 9pt, style=Underline"/>
+          <TableCell Name="Cell250" Text="[tb_so.ixslum]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell251" Text="__________   " HorzAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="467.04" Width="718.2" AfterDataEvent="GroupHeader1_AfterData" StartNewPage="true" Condition="[tb_so.comcon]" ResetPageNumber="true">
+      <DataBand Name="Data1" Top="492.93" Width="179.55" Height="19.9" Guides="0" DataSource="dbo_tb_so" Columns.Count="4" Columns.Layout="DownThenAcross" Columns.MinRowCount="16">
+        <TextObject Name="Text2" Left="9.45" Top="1" Width="132.3" Height="18.9" Text="[tb_so.ilot]" Font="宋体, 9pt"/>
+        <TextObject Name="Text4" Left="111.4" Top="1" Width="66.15" Height="18.9" Text="[tb_so.iqall]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+        <DataHeaderBand Name="DataHeader1" Top="470.53" Width="718.2" Height="18.9">
+          <TextObject Name="Text47" Left="5.45" Width="179.55" Height="18.9" Text="Lot                              Qty" HorzAlign="Center" Font="Arial, 10pt, style=Underline"/>
+          <TextObject Name="Text49" Left="183.55" Width="179.55" Height="18.9" Text="Lot                              Qty" HorzAlign="Center" Font="Arial, 10pt, style=Underline"/>
+          <TextObject Name="Text50" Left="363.55" Width="179.55" Height="18.9" Text="Lot                              Qty" HorzAlign="Center" Font="Arial, 10pt, style=Underline"/>
+          <TextObject Name="Text51" Left="543.65" Width="179.55" Height="18.9" Text="Lot                              Qty" HorzAlign="Center" Font="Arial, 10pt, style=Underline"/>
+        </DataHeaderBand>
+        <Sort>
+          <Sort Expression="[tb_so.ilot]"/>
+        </Sort>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="516.32" Width="718.2" Height="189">
+        <TextObject Name="Text34" Left="9.45" Top="9.45" Width="122.85" Height="18.9" Text="Customer    Notes :" AutoWidth="true" Font="Arial, 9pt"/>
+        <TextObject Name="Text9" Left="198.45" Top="9.45" Width="406.35" Height="18.9" Text="INVOICE : 3 , PACKSLIP : 6 CERTS : 2 - 1 INSIDE &amp; 1 OUTSIDE" Font="Arial, 9pt"/>
+        <TextObject Name="Text35" Left="198.45" Top="28.35" Width="406.35" Height="18.9" Text="SHIP VIA : FEDEXINTL ECON , &gt;150 LBS . FEDEX FREIGHT" Font="Arial, 9pt"/>
+        <TextObject Name="Text36" Left="198.45" Top="47.25" Width="406.35" Height="18.9" Text="PAST DUE SHIP BEST ECONOMIC          STD INTL PKG" Font="Arial, 9pt"/>
+        <TextObject Name="Text37" Left="198.45" Top="66.15" Width="406.35" Height="18.9" Text="M/F : FOR EXPORT ONLY        EXPORT DOCUMENTS REQUIRED" Font="Arial, 9pt"/>
+        <TextObject Name="Text42" Left="198.45" Top="85.05" Width="406.35" Height="18.9" Text="QUALITY CERTIFICATION  PER QD4.6 - 40 SECTION 8. 2. 3" Font="Arial, 9pt"/>
+        <TextObject Name="Text38" Left="198.45" Top="103.95" Width="406.35" Height="18.9" Text="GENERAL TERMS PER CONTRACT GTA-9372 10/15/2010" Font="Arial, 9pt"/>
+        <TextObject Name="Text39" Left="198.45" Top="122.85" Width="406.35" Height="18.9" Text="TERMS &amp; CONDITIONS PER CONTRACT C9372-STA1 6/10/11" Font="Arial, 9pt"/>
+        <TextObject Name="Text40" Left="198.45" Top="141.75" Width="406.35" Height="18.9" Text="STATEMENT OF WORK REQUIRED ON REPAIR AP LIABILITY" Font="Arial, 9pt"/>
+        <TextObject Name="Text41" Left="198.45" Top="160.65" Width="406.35" Height="18.9" Text="NEED DATE = DOCK DATE WINDOW - 5 EARLY / +2 LATE" Font="Arial, 9pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="708.82" Width="718.2" Height="60.48">
+      <TextObject Name="Text43" Left="103.95" Top="1.35" Width="491.4" Height="18.9" Text="Please Remit To: Arrowhead Products - PO Box 92946 - Cleveland, OH 44194-2946" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TableObject Name="Table1" Left="9.45" Top="20.25" Width="701.19" Height="37.78" Border.Lines="All">
+        <TableColumn Name="Column1" Width="94.77"/>
+        <TableColumn Name="Column2" Width="66.42"/>
+        <TableColumn Name="Column3" Width="142.02"/>
+        <TableColumn Name="Column4" Width="75.87"/>
+        <TableColumn Name="Column5" Width="66.42"/>
+        <TableColumn Name="Column6" Width="75.87"/>
+        <TableColumn Name="Column7" Width="179.82"/>
+        <TableRow Name="Row1" Height="18.89">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Picked By/Date" Font="宋体, 9pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="No. Pkgs" Font="宋体, 9pt"/>
+          <TableCell Name="Cell23" Border.Lines="All" Text="Dimensions" Font="宋体, 9pt"/>
+          <TableCell Name="Cell24" Border.Lines="All" Text="Cube" HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell25" Border.Lines="All" Text="Weight" HorzAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="Via" Font="宋体, 9pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="Waybill" Font="宋体, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="18.89">
+          <TableCell Name="Cell6" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell31" Border.Lines="All" Text="[string2]" Font="宋体, 9pt"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="[string1]" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

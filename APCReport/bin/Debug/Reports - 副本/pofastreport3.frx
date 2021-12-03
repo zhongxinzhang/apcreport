@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/15/2020 10:45:01" ReportInfo.Modified="03/30/2020 08:43:58" ReportInfo.CreatorVersion="2019.3.5.0">
+  <Dictionary>
+    <OleDbDataConnection Name="Connection" ConnectionString="rijcmlqVzFGsc+BVENiWJhr/EarGpBAWeg3buKy7FvTZiRE6WNO1EiH4xA1QNRDoDLcLyeiqovHbVXDGk2QXHrEF/mOx/UEgxLb7Nf6e+pQDjjFURYEtcS7LiKgK5iYCYhesJckbfINMw68L+6Na9rJXL/KEw==">
+      <TableDataSource Name="dbo_tb_so" Alias="tb_so" DataType="System.Int32" Enabled="true" TableName="dbo.&quot;tb_so&quot;">
+        <Column Name="pvend" DataType="System.Decimal"/>
+        <Column Name="vndnam" DataType="System.String"/>
+        <Column Name="vmvfax" DataType="System.String"/>
+        <Column Name="vtaxcd" DataType="System.String"/>
+        <Column Name="povtxc" DataType="System.String"/>
+        <Column Name="pbuyc" DataType="System.String"/>
+        <Column Name="pofac" DataType="System.String"/>
+        <Column Name="pord" DataType="System.Decimal"/>
+        <Column Name="pprod" DataType="System.String"/>
+        <Column Name="idesc" DataType="System.String"/>
+        <Column Name="pocur" DataType="System.String"/>
+        <Column Name="pqord" DataType="System.Decimal"/>
+        <Column Name="invqty" DataType="System.Decimal"/>
+        <Column Name="pecst" Alias="pamt" DataType="System.Decimal"/>
+        <Column Name="pcqty" Alias="rpcst" DataType="System.Decimal"/>
+        <Column Name="pqrec" Alias="pramt" DataType="System.Decimal"/>
+      </TableDataSource>
+    </OleDbDataConnection>
+    <Total Name="Total" Expression="[tb_so.pramt]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="Total1" Expression="[tb_so.pamt]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2"/>
+    <PageHeaderBand Name="PageHeader1" Top="3.85" Width="718.2" Height="2"/>
+    <GroupHeaderBand Name="GroupHeader1" Top="9.69" Width="718.2" Height="132.3" StartNewPage="true" Condition="[tb_so.pvend]">
+      <TextObject Name="Text1" Left="311.85" Top="75.6" Width="103.95" Height="18.9" Text="[[tb_so.pvend]]" VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+      <TableObject Name="Table2" Left="9.45" Top="103.95" Width="699.3" Height="28.35">
+        <TableColumn Name="Column9"/>
+        <TableColumn Name="Column10"/>
+        <TableColumn Name="Column11" Width="170.1"/>
+        <TableColumn Name="Column12"/>
+        <TableColumn Name="Column13" Width="85.05"/>
+        <TableColumn Name="Column14" Width="75.6"/>
+        <TableColumn Name="Column15" Width="85.05"/>
+        <TableColumn Name="Column16" Width="85.05"/>
+        <TableRow Name="Row2" Height="28.35">
+          <TableCell Name="Cell9" Border.Lines="All" Text="采购单号" HorzAlign="Center" VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+          <TableCell Name="Cell10" Border.Lines="Right, Top, Bottom" Text="图号" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell11" Border.Lines="Right, Top, Bottom" Text="名称" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell12" Border.Lines="Right, Top, Bottom" Text="订单数量" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell13" Border.Lines="Right, Top, Bottom" Text="未开票数量" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell14" Border.Lines="Right, Top, Bottom" Text="含税金额" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell15" Border.Lines="Right, Top, Bottom" Text="不含税单价" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell16" Border.Lines="Right, Top, Bottom" Text="不含税金额" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text12" Left="226.8" Top="47.25" Width="85.05" Height="18.9" Text="供应商名称 : " Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text13" Left="226.8" Top="75.6" Width="85.05" Height="18.9" Text="供应商代码: " Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text14" Left="311.85" Top="47.25" Width="236.25" Height="18.9" Text="[[tb_so.vndnam]]" VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text15" Left="18.9" Top="47.25" Width="66.15" Height="18.9" Text="采购员 : " Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text2" Left="85.05" Top="47.25" Width="94.5" Height="18.9" Text="[tb_so.pbuyc]" VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text16" Left="18.9" Top="75.6" Width="66.15" Height="18.9" Text="传真号 : " Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text3" Left="85.05" Top="75.6" Width="141.75" Height="18.9" Text="[tb_so.vmvfax]" VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text17" Left="557.55" Top="47.25" Width="47.25" Height="18.9" Text="税率: " Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text18" Left="529.2" Top="75.6" Width="75.6" Height="18.9" Text="打印日期: " Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text4" Left="604.8" Top="75.6" Width="85.05" Height="18.9" Text="[Date]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text5" Left="614.25" Top="47.25" Width="56.7" Height="18.9" Text="[tb_so.vtaxcd]" VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text11" Left="226.8" Top="2" Width="264.6" Height="37.8" Text="货到票未到统计表" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 16pt, style=Bold"/>
+      <TextObject Name="Text19" Left="415.8" Top="75.6" Width="47.25" Height="18.9" Text="币种: " VertAlign="Center" Font="Arial Unicode MS, 10pt"/>
+      <TextObject Name="Text6" Left="463.05" Top="75.6" Width="56.7" Height="18.9" Text="[tb_so.pocur]" VertAlign="Center" Font="宋体, 9pt"/>
+      <DataBand Name="Data1" Top="145.84" Width="718.2" Height="28.35" DataSource="dbo_tb_so">
+        <TableObject Name="Table1" Left="9.45" Width="699.3" Height="28.35" Border.Lines="All">
+          <TableColumn Name="Column1"/>
+          <TableColumn Name="Column2"/>
+          <TableColumn Name="Column3" Width="170.1"/>
+          <TableColumn Name="Column4"/>
+          <TableColumn Name="Column5" Width="85.05"/>
+          <TableColumn Name="Column6" Width="75.6"/>
+          <TableColumn Name="Column7" Width="85.05"/>
+          <TableColumn Name="Column8" Width="85.05"/>
+          <TableRow Name="Row1" Height="28.35">
+            <TableCell Name="Cell1" Border.Lines="Left" Text="[tb_so.pord]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell2" Border.Lines="Left" Text="[tb_so.pprod]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell3" Border.Lines="Left" Text="[tb_so.idesc]" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell4" Border.Lines="Left" Text="[tb_so.pqord]" HorzAlign="Right" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell5" Border.Lines="Left" Text="[tb_so.invqty]" HorzAlign="Right" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell6" Border.Lines="Left" Text="[tb_so.pamt]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell7" Border.Lines="Left" Text="[tb_so.rpcst]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="5" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell8" Border.Lines="Left" Text="[tb_so.pramt]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="178.03" Width="718.2" Height="28.35">
+        <TableObject Name="Table3" Left="9.45" Width="699.3" Height="28.35" Border.Lines="All">
+          <TableColumn Name="Column17"/>
+          <TableColumn Name="Column18"/>
+          <TableColumn Name="Column19" Width="170.1"/>
+          <TableColumn Name="Column20"/>
+          <TableColumn Name="Column21" Width="85.05"/>
+          <TableColumn Name="Column22" Width="75.6"/>
+          <TableColumn Name="Column23" Width="85.05"/>
+          <TableColumn Name="Column24" Width="85.05"/>
+          <TableRow Name="Row3" Height="28.35">
+            <TableCell Name="Cell17" Border.Lines="Left" Text="合计" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell18" Border.Lines="Left" Font="宋体, 9pt"/>
+            <TableCell Name="Cell19" Border.Lines="Left" Font="宋体, 9pt"/>
+            <TableCell Name="Cell20" Border.Lines="Left" Font="宋体, 9pt"/>
+            <TableCell Name="Cell21" Border.Lines="Left" Font="宋体, 9pt"/>
+            <TableCell Name="Cell22" Border.Lines="Left" Text="[Total1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="宋体, 9pt"/>
+            <TableCell Name="Cell23" Border.Lines="Left" Font="宋体, 9pt"/>
+            <TableCell Name="Cell24" Border.Lines="Left" Text="[Total]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="宋体, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="210.23" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>
